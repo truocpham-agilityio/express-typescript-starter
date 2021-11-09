@@ -37,16 +37,31 @@
 ├── src
 │   ├── api
 │   │   ├── controllers         # api controllers
+│   │   ├── dto                 # data transform object
 │   │   ├── index.ts            # api entry point
 │   │   ├── middlewares         # api middlewares
 │   │   ├── routes              # api routes
 │   │   └── validations         # api validations
-│   ├── config                  # configuration settings
-│   ├── db                      # database connection
-│   ├── models                  # data access layer: data models
+│   ├── config
+│   │   └── index.ts            # configuration settings
+│   ├── core
+│   │   ├── constants
+│   │   ├── controllers
+│   │   ├── filters
+│   │   ├── handlers
+│   │   ├── infra
+│   │   ├── interfaces
+│   │   └── services
+│   ├── db
+│   │   ├── dal                 # data access layer
+│   │   ├── init.ts             # database connection
+│   │   ├── interfaces
+│   │   ├── models              # data models
+│   │   └── services            # service layer: business logic
 │   ├── server.ts               # server entry point
-│   ├── services                # service layer: business logic
-│   └── utils                   # utilities: constants, helpers, logger ...
+│   └── utils
+│       ├── functions.ts        # utilities function
+│       └── logger.ts           # utilities logger
 ├── tests                       # all test suites
 └── tsconfig.json               # TypeScript configure
 ```
