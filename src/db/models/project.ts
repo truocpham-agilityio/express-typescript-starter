@@ -13,7 +13,7 @@ import {
 
 import Users from "./user";
 import Tasks from "./task";
-import { ProjectAttributes, ProjectInput } from "../interfaces";
+import { ProjectAttributes, ProjectInput } from "../../interfaces";
 
 @Table
 class Projects

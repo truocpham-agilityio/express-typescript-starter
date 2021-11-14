@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 
 import { HTTP_MESSAGE } from "../../core/constants/http";
-import { CreateUserDTO } from "../dto/user-dto";
-import CrudController from "../../core/controllers/crud";
-import UserService from "../../db/services/user";
+import { CreateUserDTO } from "../../dto/user-dto";
+import CrudController from "../../core/controllers/crud-controller";
+import UserService from "../../db/services/user-service";
 
 class UserController extends CrudController {
   public service = new UserService();

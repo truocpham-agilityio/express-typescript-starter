@@ -5,13 +5,24 @@ import {
   DataType,
   BelongsTo,
   ForeignKey,
+  CreatedAt,
+  UpdatedAt,
+  DeletedAt,
 } from "sequelize-typescript";
 
 import Users from "./user";
 import Projects from "./project";
+import { TaskAttributes, TaskInput } from "../../interfaces";
 
 @Table
-export default class Tasks extends Model {
+class Tasks extends Model<TaskAttributes, TaskInput> implements TaskAttributes {
+  @Column({
+    type: DataType.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  })
+  id!: number;
+
   @ForeignKey(() => Projects)
   @Column
   projectId!: number;
@@ -53,11 +64,17 @@ export default class Tasks extends Model {
   })
   priority!: number;
 
-  @Column(DataType.DATE)
+  @Column({
+    type: DataType.DATE,
+    allowNull: false,
+  })
   dueDate!: Date;
 
   @ForeignKey(() => Users)
-  @Column
+  @Column({
+    type: DataType.INTEGER,
+    defaultValue: 0,
+  })
   assigneeId!: number;
 
   @BelongsTo(() => Users)
@@ -69,4 +86,15 @@ export default class Tasks extends Model {
 
   @BelongsTo(() => Users)
   reporter!: Users;
+
+  @CreatedAt
+  createdAt!: Date;
+
+  @UpdatedAt
+  updatedAt!: Date;
+
+  @DeletedAt
+  deletedAt!: Date;
 }
+
+export default Tasks;

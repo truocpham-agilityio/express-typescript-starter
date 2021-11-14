@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import projectController from "../controllers/project";
+import projectController from "../controllers/project-controller";
 
 export default (route: Router) => {
   route.post("/projects", projectController.create);

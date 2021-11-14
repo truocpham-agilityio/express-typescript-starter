@@ -1,8 +1,8 @@
 import Logger from "../../utils/logger";
-import UserDal from "../dal/user";
-import ProjectDal from "../dal/project";
-import { CrudService } from "../../core/services/crud";
-import { ProjectInput, ProjectOutput, UserInput } from "../interfaces";
+import UserDal from "../dal/user-dal";
+import ProjectDal from "../dal/project-dal";
+import { CrudService } from "../../core/services/crud-service";
+import { ProjectInput, ProjectOutput, UserInput } from "../../interfaces";
 import { Projects } from "../models";
 
 export default class ProjectService extends CrudService {
@@ -37,5 +37,11 @@ export default class ProjectService extends CrudService {
 
       return updatedProject;
     }
+  };
+
+  public findProjectByName = async (
+    projectName: string,
+  ): Promise<ProjectOutput | null> => {
+    return ProjectDal.getByName(projectName);
   };
 }

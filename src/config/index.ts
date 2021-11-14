@@ -35,4 +35,6 @@ export default {
     storage: join(__dirname, "../../db/database.sqlite"),
     logging: isDev,
   },
+
+  jwtSecret: process.env.JWT_SECRET,
 };

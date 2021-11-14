@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
 
-import CrudController from "../../core/controllers/crud";
+import CrudController from "../../core/controllers/crud-controller";
 import { HTTP_MESSAGE } from "../../core/constants/http";
-import ProjectService from "../../db/services/project";
-import { CreateProjectDTO } from "../dto/project-dto";
+import { CreateTaskDTO } from "../../dto/task-dto";
+import TaskService from "../../db/services/task-service";
 
-class ProjectController extends CrudController {
-  public service = new ProjectService();
+class TaskController extends CrudController {
+  public service = new TaskService();
 
   public create = async (req: Request, res: Response) => {
     try {
-      const payload = req.body as CreateProjectDTO;
+      const payload = req.body as CreateTaskDTO;
       const created = await this.service.create(payload);
 
       return this.returnCreated(res, created, HTTP_MESSAGE.CREATED);
@@ -20,4 +20,4 @@ class ProjectController extends CrudController {
   };
 }
 
-export default new ProjectController();
+export default new TaskController();

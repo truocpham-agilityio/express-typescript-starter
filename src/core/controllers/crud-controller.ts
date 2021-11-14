@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
-import HttpController from "./http";
-import { CrudService } from "../services/crud";
+import HttpController from "./http-controller";
+import { CrudService } from "../services/crud-service";
 import { PaginateOptions } from "../interfaces/paginate-options";
 import { HTTP_MESSAGE, HTTP_STATUS_CODE } from "../constants/http";
 

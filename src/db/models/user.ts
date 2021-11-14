@@ -8,7 +8,7 @@ import {
   DeletedAt,
 } from "sequelize-typescript";
 
-import { UserAttributes, UserInput } from "../interfaces";
+import { UserAttributes, UserInput } from "../../interfaces";
 
 @Table({
   paranoid: true,
@@ -34,17 +34,17 @@ class Users extends Model<UserAttributes, UserInput> implements UserAttributes {
   })
   name!: string;
 
-  // @Column({
-  //   type: DataType.STRING,
-  //   allowNull: false,
-  // })
-  // password!: string;
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  password!: string;
 
-  // @Column({
-  //   type: DataType.STRING,
-  //   allowNull: false,
-  // })
-  // salt!: string;
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  salt!: string;
 
   @Column({
     type: DataType.STRING,
